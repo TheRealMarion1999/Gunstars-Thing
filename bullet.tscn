@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://ci7vp3baray7q"]
+
+[ext_resource type="Texture2D" uid="uid://ihuqvaveah23" path="res://icon.svg" id="1_v7oki"]
+[ext_resource type="Script" uid="uid://ddooco613kdhl" path="res://bullet.gd" id="1_v8qja"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_v8qja"]
+radius = 4.0
+
+[node name="Bullet" type="Area2D" unique_id=643209017]
+script = ExtResource("1_v8qja")
+
+[node name="Graphic" type="Sprite2D" parent="." unique_id=1053128468]
+scale = Vector2(0.051046815, 0.051046815)
+texture = ExtResource("1_v7oki")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=661290518]
+shape = SubResource("CircleShape2D_v8qja")
+
+[node name="DestroyTimer" type="Timer" parent="." unique_id=218137708]
+wait_time = 0.6
+one_shot = true
+
+[connection signal="timeout" from="DestroyTimer" to="." method="_on_destroy_timer_timeout"]

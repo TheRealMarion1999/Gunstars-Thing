@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://yp5ii3cgu2go"]
+
+[node name="CanvasLayer" type="CanvasLayer" unique_id=1358091893]
+
+[node name="Label" type="Label" parent="." unique_id=1484753509]
+offset_right = 66.0
+offset_bottom = 23.0
+text = "asfdasdf"
