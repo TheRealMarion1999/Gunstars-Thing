@@ -24,7 +24,7 @@ enum FIRING_DIRECTIONS {
 	UP_RIGHT
 }
 const FIRING_ANGLES = [22.5, 67.5, 112.5, 158.5, 202.5, 247.5, 292.5, 337.5]
-const SPEED = 300.0
+const SPEED = 200.0
 const JUMP_VELOCITY = -400.0
 const JUMP_DESCENT = 8.333391
 const KNIFE_FRAMES: float = 0.2
@@ -67,10 +67,10 @@ func _physics_process(delta: float) -> void:
 		elif state in [STATES.RUN, STATES.RUNSHOOT]:
 			state = STATES.RUNSHOOT
 
+	jump()
 	if is_initiating_slide:
 		state = STATES.SLIDE
 		print("slide")
-	jump()
 	debug_state_indicator()
 	debug_firing_direction()
 	move_and_slide()

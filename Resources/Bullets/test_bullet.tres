@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Bullet" format=3 uid="uid://bhcd5vrr12mcc"]
+
+[ext_resource type="Script" uid="uid://bdx2hcx6ft08" path="res://Resources/Bullets/bullet_resource.gd" id="1_7vct1"]
+[ext_resource type="Texture2D" uid="uid://b6p6ogqfhcng4" path="res://Graphic/shot.png" id="2_caulg"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_caulg"]
+radius = 5.0
+
+[resource]
+script = ExtResource("1_7vct1")
+sprite = ExtResource("2_caulg")
+hitbox = SubResource("CircleShape2D_caulg")
+metadata/_custom_type_script = "uid://bdx2hcx6ft08"

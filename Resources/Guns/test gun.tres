@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="Gun" format=3 uid="uid://fivg2fsb7frp"]
+
+[ext_resource type="Script" uid="uid://bdx2hcx6ft08" path="res://Resources/Bullets/bullet_resource.gd" id="1_o1w2g"]
+[ext_resource type="Resource" uid="uid://bhcd5vrr12mcc" path="res://Resources/Bullets/test_bullet.tres" id="1_vvcso"]
+[ext_resource type="Script" uid="uid://u2w4jooksi8o" path="res://Resources/Guns/gun_resource.gd" id="3_5yoen"]
+[ext_resource type="Texture2D" uid="uid://cytfr7cc1dt4d" path="res://Graphic/Player/Guns/SmallGun.png" id="4_5yoen"]
+
+[resource]
+script = ExtResource("3_5yoen")
+sprite = ExtResource("4_5yoen")
+firing_type = 0
+fires = Dictionary[int, ExtResource("1_o1w2g")]({
+0: ExtResource("1_vvcso"),
+1: ExtResource("1_vvcso"),
+2: ExtResource("1_vvcso")
+})
+level_up_thresholds = Dictionary[int, int]({
+0: 1,
+1: 2,
+2: 3
+})
+spread = 5
+gun_exp_lost_on_hit = 1
+metadata/_custom_type_script = "uid://u2w4jooksi8o"

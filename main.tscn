@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dqhdlm8lmxlr"]
 
-[ext_resource type="PackedScene" uid="uid://cbo36h58iosqk" path="res://Player.tscn" id="1_ig7tw"]
+[ext_resource type="PackedScene" uid="uid://cbo36h58iosqk" path="res://Entity/Player/Player.tscn" id="1_ig7tw"]
 [ext_resource type="Texture2D" uid="uid://ihuqvaveah23" path="res://icon.svg" id="2_0xm2m"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ig7tw"]
@@ -20,4 +20,4 @@ scale = Vector2(9.015625, 1.5234375)
 texture = ExtResource("2_0xm2m")
 
 [node name="CharacterBody2D" parent="." unique_id=30335068 instance=ExtResource("1_ig7tw")]
-position = Vector2(251, 430)
+position = Vector2(251, 380)

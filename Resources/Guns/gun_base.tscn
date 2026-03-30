@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://dd4o6kmpx7cx5"]
+
+[ext_resource type="Script" uid="uid://bms63tt0ubqjb" path="res://Resources/Guns/gun.gd" id="1_e4i55"]
+[ext_resource type="Resource" uid="uid://fivg2fsb7frp" path="res://Resources/Guns/test gun.tres" id="2_adfnj"]
+[ext_resource type="Texture2D" uid="uid://cytfr7cc1dt4d" path="res://Graphic/Player/Guns/SmallGun.png" id="3_2og1t"]
+
+[node name="Gun_Base" type="Node2D" unique_id=676421987]
+script = ExtResource("1_e4i55")
+gun_data = ExtResource("2_adfnj")
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=2012861326]
+texture = ExtResource("3_2og1t")
+
+[node name="FireTimer" type="Timer" parent="." unique_id=1997447170]
+wait_time = 0.1
+one_shot = true

@@ -1,19 +1,20 @@
 [gd_scene format=3 uid="uid://ci7vp3baray7q"]
 
 [ext_resource type="Texture2D" uid="uid://ihuqvaveah23" path="res://icon.svg" id="1_v7oki"]
-[ext_resource type="Script" uid="uid://ddooco613kdhl" path="res://bullet.gd" id="1_v8qja"]
+[ext_resource type="Script" uid="uid://ddooco613kdhl" path="res://Resources/Bullets/bullet.gd" id="1_v8qja"]
+[ext_resource type="Resource" uid="uid://bhcd5vrr12mcc" path="res://Resources/Bullets/test_bullet.tres" id="2_t4vbm"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_v8qja"]
 radius = 4.0
 
 [node name="Bullet" type="Area2D" unique_id=643209017]
 script = ExtResource("1_v8qja")
+bullet_type = ExtResource("2_t4vbm")
 
 [node name="Graphic" type="Sprite2D" parent="." unique_id=1053128468]
-scale = Vector2(0.051046815, 0.051046815)
 texture = ExtResource("1_v7oki")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=661290518]
+[node name="HitBox" type="CollisionShape2D" parent="." unique_id=661290518]
 shape = SubResource("CircleShape2D_v8qja")
 
 [node name="DestroyTimer" type="Timer" parent="." unique_id=218137708]
