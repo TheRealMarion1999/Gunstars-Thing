@@ -9,6 +9,8 @@ enum GUN_LEVEL {
 
 @export var sprite: Texture2D
 
+@export var two_handed_gun: bool
+
 @export_enum("straight", "spread") var firing_type
 
 @export var fires: Dictionary[GUN_LEVEL, Bullet]

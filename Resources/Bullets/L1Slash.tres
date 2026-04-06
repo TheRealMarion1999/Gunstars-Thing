@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Bullet" format=3 uid="uid://bg83ky4mtxle4"]
+
+[ext_resource type="Script" uid="uid://bdx2hcx6ft08" path="res://Resources/Bullets/bullet_resource.gd" id="1_l66fn"]
+[ext_resource type="Texture2D" uid="uid://udh5rb6ee3ey" path="res://Graphic/L1Slash.png" id="2_705c4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l66fn"]
+size = Vector2(32, 36)
+
+[resource]
+script = ExtResource("1_l66fn")
+sprite = ExtResource("2_705c4")
+speed = 50
+hitbox = SubResource("RectangleShape2D_l66fn")
+damage = 5
+time_until_destroyed = 0.2
+metadata/_custom_type_script = "uid://bdx2hcx6ft08"

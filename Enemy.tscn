@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://dlrbtitmx4les"]
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_gqquq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tt7e2"]
+size = Vector2(40, 40)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_s7bn3"]
+
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=803447291]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1063093995]
+
+[node name="AnimationTree" type="AnimationTree" parent="." unique_id=84959343]
+tree_root = SubResource("AnimationNodeStateMachine_gqquq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1906237780]
+shape = SubResource("RectangleShape2D_tt7e2")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=737653475]
+sprite_frames = SubResource("SpriteFrames_s7bn3")

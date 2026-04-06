@@ -7,5 +7,6 @@ class_name Bullet
 @export var damage: int = 2
 @export var time_until_destroyed: float = 1.0
 @export var turns_into: Bullet
+@export var rotation: float
 
 var fired_by_player: bool = false

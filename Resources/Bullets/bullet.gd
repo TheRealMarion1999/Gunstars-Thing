@@ -10,7 +10,6 @@ func init(player_fire:bool, bullet = bullet_type) -> void:
 	bullet_type = bullet
 
 func _ready() -> void:
-	copy_data_from_resource()
 	$DestroyTimer.start()
 
 func _process(delta: float) -> void:
