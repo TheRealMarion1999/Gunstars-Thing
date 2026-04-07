@@ -32,5 +32,11 @@ var current_level = GUN_LEVEL.LEVEL_1
 @export var recoils_in_air: bool = false
 @export var recoil_total: float = 1.0
 
-func check_for_level_change():
+
+##Changes the exp value. Used when the player takes damage (negative numbers) or collects exp pieces (positive numbers)
+func change_exp(total: int):
+	gun_exp += total
+	##TODO: has to be able to check for both level up and level down.
+
+func change_level():
 	pass

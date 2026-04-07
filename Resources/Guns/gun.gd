@@ -18,6 +18,7 @@ func _process(_delta: float) -> void:
 		if $FireTimer.is_stopped():
 			$FireTimer.start()
 			var bullet = BULLET.instantiate()
+			bullet.is_fired_by_player = true
 			bullet.load_data_from_gun_resource(gun_data)
 			get_tree().root.add_child(bullet)
 			bullet.global_position = global_position

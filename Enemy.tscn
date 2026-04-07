@@ -1,21 +1,76 @@
 [gd_scene format=3 uid="uid://dlrbtitmx4les"]
 
-[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_gqquq"]
+[ext_resource type="Script" uid="uid://di2gayqd5xi7u" path="res://grunt.gd" id="1_s7bn3"]
+[ext_resource type="Texture2D" uid="uid://bs2hxbuklwue6" path="res://Graphic/Enemy/Grunt/Idle.png" id="1_tt7e2"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_tt7e2"]
-size = Vector2(40, 40)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_s7bn3"]
+radius = 13.0
+height = 46.0
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_s7bn3"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_e6d4v"]
+atlas = ExtResource("1_tt7e2")
+region = Rect2(0, 0, 26, 43)
 
-[node name="CharacterBody2D" type="CharacterBody2D" unique_id=803447291]
+[sub_resource type="AtlasTexture" id="AtlasTexture_qp131"]
+atlas = ExtResource("1_tt7e2")
+region = Rect2(0, 43, 26, 43)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1063093995]
+[sub_resource type="AtlasTexture" id="AtlasTexture_6do27"]
+atlas = ExtResource("1_tt7e2")
+region = Rect2(0, 86, 26, 43)
 
-[node name="AnimationTree" type="AnimationTree" parent="." unique_id=84959343]
-tree_root = SubResource("AnimationNodeStateMachine_gqquq")
+[sub_resource type="SpriteFrames" id="SpriteFrames_rvmyp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e6d4v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qp131")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6do27")
+}],
+"loop": true,
+"name": &"default",
+"speed": 9.0
+}]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1906237780]
-shape = SubResource("RectangleShape2D_tt7e2")
+[sub_resource type="CircleShape2D" id="CircleShape2D_s7bn3"]
+radius = 21.023796
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=737653475]
-sprite_frames = SubResource("SpriteFrames_s7bn3")
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s7bn3"]
+size = Vector2(65, 44)
+
+[node name="Grunt" type="CharacterBody2D" unique_id=716819502]
+script = ExtResource("1_s7bn3")
+HP = 50
+metadata/_custom_type_script = "uid://ykmylwv0fr71"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1501739730]
+shape = SubResource("CapsuleShape2D_s7bn3")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1512834687]
+sprite_frames = SubResource("SpriteFrames_rvmyp")
+autoplay = "default"
+frame_progress = 0.4572493
+
+[node name="HitBox" type="Area2D" parent="." unique_id=916948011]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox" unique_id=1999294390]
+shape = SubResource("CircleShape2D_s7bn3")
+
+[node name="RoamTimer" type="Timer" parent="." unique_id=273692448]
+wait_time = 2.0
+one_shot = true
+
+[node name="InvincibleTimer" type="Timer" parent="." unique_id=1113575582]
+
+[node name="DetectBox" type="Area2D" parent="." unique_id=1609740235]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectBox" unique_id=1425434078]
+position = Vector2(1.5, -1)
+shape = SubResource("RectangleShape2D_s7bn3")
+
+[connection signal="area_entered" from="HitBox" to="." method="_on_hit_box_area_entered"]
+[connection signal="timeout" from="RoamTimer" to="." method="_on_roam_timer_timeout"]

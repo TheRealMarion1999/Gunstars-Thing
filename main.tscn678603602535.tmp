@@ -3,7 +3,6 @@
 [ext_resource type="PackedScene" uid="uid://cbo36h58iosqk" path="res://Entity/Player/Player.tscn" id="1_ig7tw"]
 [ext_resource type="Texture2D" uid="uid://ihuqvaveah23" path="res://icon.svg" id="2_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://dlrbtitmx4les" path="res://Enemy.tscn" id="3_h2yge"]
-[ext_resource type="PackedScene" uid="uid://1w4hx64dkert" path="res://exp.tscn" id="4_1bvp3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ig7tw"]
 size = Vector2(1249, 193)
@@ -11,8 +10,6 @@ size = Vector2(1249, 193)
 [node name="Main" type="Node2D" unique_id=1463134551]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=739894325]
-collision_layer = 3
-collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=247726366]
 position = Vector2(602, 573)
@@ -28,10 +25,3 @@ position = Vector2(251, 380)
 
 [node name="Grunt" parent="." unique_id=716819502 instance=ExtResource("3_h2yge")]
 position = Vector2(376, 367)
-
-[node name="ExpPiece" parent="." unique_id=1395689919 instance=ExtResource("4_1bvp3")]
-position = Vector2(289, 325)
-collision_mask = 1
-linear_damp = 1.0
-angular_velocity = 3.1415927
-constant_force = Vector2(0, 0)

@@ -28,16 +28,25 @@ const SPEED = 200.0
 const JUMP_VELOCITY = -400.0
 const JUMP_DESCENT = 8.333391
 const KNIFE_FRAMES: float = 0.2
+const MAX_VELOCITY = 500
 
 var hold_counter = 0.0
 var state = STATES.IDLE
 var firing_direction = FIRING_DIRECTIONS.RIGHT
 
+##The player's currently equipped gun.
+##TODO: in the future, this will be handled with a singleton array of all held guns. For now, it's exported.
+@export var current_gun: Gun
+
 #For some reaosn this ONLY works if it's done like this. Killing myself.
 @onready var arm_rotate = $Rotation
 
+func _ready() -> void:
+	$Rotation/Gun_Base.gun_data = current_gun
+
 ##TODO: break all this up into individual functions.
 func _physics_process(delta: float) -> void:
+	velocityCapper()
 	$Rotation.look_at(get_global_mouse_position())
 	rot_rollover()
 	update_firing_direction(arm_rotate.rotation_degrees)
@@ -75,6 +84,8 @@ func _physics_process(delta: float) -> void:
 	debug_firing_direction()
 	move_and_slide()
 
+func change_gun(new_gun: Gun):
+	current_gun = new_gun
 
 func jump():
 	var is_initiating_jump := is_on_floor() && Input.is_action_pressed("jump")
@@ -112,6 +123,12 @@ func update_firing_direction(arm_rotation):
 		firing_direction = FIRING_DIRECTIONS.UP
 	elif arm_rotation >= FIRING_ANGLES[6] && arm_rotation <= FIRING_ANGLES[7]:
 		firing_direction = FIRING_DIRECTIONS.UP_RIGHT
+
+func velocityCapper():
+	if abs(velocity.y) > MAX_VELOCITY:
+		if velocity.y <= 0:
+			velocity.y = -MAX_VELOCITY
+		else: velocity.y = MAX_VELOCITY
 
 func debug_state_indicator():
 	match state:

@@ -3,11 +3,7 @@ class_name Bullet_Base
 
 @export var bullet_type: Bullet
 
-var fired_by_player = false
-
-func init(player_fire:bool, bullet = bullet_type) -> void:
-	fired_by_player = player_fire
-	bullet_type = bullet
+var is_fired_by_player = false
 
 func _ready() -> void:
 	$DestroyTimer.start()
